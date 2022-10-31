@@ -1,6 +1,7 @@
 
 package ufc;
 
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 
@@ -12,6 +13,18 @@ public class Principal {
         
         Lutador lutador2 = new Lutador();
         lutador2 = solicitarDados();
+        
+        Luta luta = new Luta(lutador1, lutador2);
+        boolean aprovacao = luta.lutar();
+        
+        if (aprovacao) {
+            System.out.println("Desafiante: " + lutador1.status());
+            System.out.println("Desafiado: " + lutador2.status());
+        } else {
+            System.out.println("Luta não foi aprovada!");
+        }
+        
+        
     }
     
     public static Lutador solicitarDados() {
